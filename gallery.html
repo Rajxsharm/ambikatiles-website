@@ -421,7 +421,7 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="glass-nav">
+<!--     <nav class="glass-nav">
         <div class="logo">
             <span class="logo-text">AMBIKA</span>
             <span class="logo-subtext">TILES & SANITARY</span>
@@ -436,7 +436,32 @@
         <div class="nav-cta">
             <button class="holographic-btn">Get Quote</button>
         </div>
-    </nav>
+    </nav> -->
+
+    <nav class="glass-nav">
+    <div class="logo">
+        <span class="logo-text">AMBIKA</span>
+        <span class="logo-subtext">TILES & SANITARY</span>
+    </div>
+    
+    <div class="nav-container">
+        <div class="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="product page.html">Products</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        
+        <div class="nav-cta">
+            <button class="holographic-btn">Get Quote</button>
+        </div>
+    </div>
+</nav>
 
     <style>
         body {
@@ -1000,6 +1025,33 @@
 
         // Initialize when DOM is loaded
         document.addEventListener('DOMContentLoaded', initVisualizer);
+
+        // Mobile Menu Toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (mobileMenuToggle && navLinks) {
+        mobileMenuToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-bars');
+            this.querySelector('i').classList.toggle('fa-times');
+        });
+    }
+    
+    // Close menu when clicking on a link
+    const navItems = document.querySelectorAll('.nav-links a');
+    navItems.forEach(item => {
+        item.addEventListener('click', function() {
+            if (window.innerWidth <= 992) {
+                navLinks.classList.remove('active');
+                mobileMenuToggle.querySelector('i').classList.add('fa-bars');
+                mobileMenuToggle.querySelector('i').classList.remove('fa-times');
+            }
+        });
+    });
+});
     </script>
 </body>
+
 </html>
